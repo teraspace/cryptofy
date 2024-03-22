@@ -1,0 +1,32 @@
+<style>
+a {
+    color: #0060B6;
+    text-decoration: none;
+}
+
+a:hover {
+    color:#00A0C6;
+    text-decoration:none;
+    cursor:pointer;
+}
+</style>
+<div class="container-fluid">
+  <div class="row">
+    <% @cryptos_presenter.results.each do |crypto_presenter| %>
+        <div class="col">
+          <a href="<%= crypto_path(crypto_presenter.asset_id_quote) %>" data-turbo="false">
+            <%= react_component("Card", props: {
+              crypto: crypto_presenter.as_json
+          }) %>
+         </a>
+        </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <%
+=begin%>
+ <%= render partial: 'shared/pagination', locals: { collection: @cryptos_presenter } %>
+<%
+=end%>
+  </div>
+</div>

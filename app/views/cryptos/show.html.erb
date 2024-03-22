@@ -1,0 +1,17 @@
+
+<%= react_component("Card", props: {
+
+    crypto: @crypto_presenter.as_json,
+    detail: @crypto_presenter.detail,
+    photo: @crypto_presenter.photo,
+    type: { name: @crypto_presenter.type, class:  crypto_type(@crypto_presenter.type.first) },
+    weight: @crypto_presenter.weight,
+    height: @crypto_presenter.height,
+    base_experience: @crypto_presenter.base_experience,
+    abilities: @crypto_presenter.abilities,
+    description: @crypto_presenter.description,
+    evolutions: @crypto_presenter.evolutions
+
+}) %>
+
+
